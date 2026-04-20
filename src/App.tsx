@@ -21,7 +21,7 @@ function App() {
       </header>
       
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
-        {state.modal ? <IncidentButtonsModal /> : state.user?.role ? components[state.user.role] : <PinForm />}
+        {state.modal ? <IncidentButtonsModal /> : state.currentUser?.role ? components[state.currentUser.role] : <PinForm />}
      </div>
       
       

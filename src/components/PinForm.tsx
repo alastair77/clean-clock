@@ -17,7 +17,7 @@ export default function PinForm() {
   
   const getUserByPin = (pin: string) => {
 
-    const userFound = users.find((user) => user.pin === pin);    
+    const userFound = users.find((user) => user.pin === pin);        
     return userFound ? userFound : null;
   };
 
@@ -30,16 +30,16 @@ export default function PinForm() {
   const handleSubmit = () => {
     //Buscar el usuario en users con el pin
     //si existe, busque en assignments con el user.id
-    const user = getUserByPin(pin);
+    const currentUser = getUserByPin(pin);
 
-    if (user === null) {
+    if (currentUser === null) {
       setError("Usuario no encontrado");
       return;
     }
         
-    dispatch({ type: "show-modal-user", payload: {user} });
+    dispatch({ type: "show-modal-user", payload: {currentUser} });
 
-    const userAssignments = getAssignmentsByUserId(user.id) 
+    const userAssignments = getAssignmentsByUserId(currentUser.id) 
     userAssignments.length > 0 && dispatch({ type: "show-assignments", payload: {userAssignments} }) 
     
   };

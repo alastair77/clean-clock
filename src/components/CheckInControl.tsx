@@ -7,11 +7,12 @@ import { Dialog, Transition } from "@headlessui/react";
 import { IncidentButtonsModal } from "./IncidentButtonsModal";
 
 export const CheckInControl = () => {
-  const { state, dispatch } = useAuth();
+  const { state, dispatch } = useAuth();    
   const [isRunning, setIsRunning] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [workTime, setWorkTime] = useState(0);
   const intervalRef = useRef<number | null>(null);
+  console.log(state)
 
   const dateToday = new Date().toLocaleDateString("es-ES");
 
@@ -69,7 +70,7 @@ export const CheckInControl = () => {
       <div className="text-sm font-mono mb-4 text-right">
         {formatTime(elapsedTime)}
       </div>
-      <h2 className="text-xl font-semibold mb-2">Hola {state.user?.name}</h2>
+      <h2 className="text-xl font-semibold mb-2">Hola {state.currentUser?.name} </h2>
 
       {todayAssignments.length === 0 ? (
         <p className="text-sm text-gray-600 mb-4">No tienes tareas asignadas</p>

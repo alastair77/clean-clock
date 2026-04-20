@@ -3,7 +3,7 @@ import { useAuth } from "../hooks/useAuth";
 import { users } from "../source/users";
 
 export default function EmployeesList() {
-  const { dispatch } = useAuth();
+  const { state, dispatch } = useAuth();
 
   return (
     <div className="p-6">
@@ -13,9 +13,11 @@ export default function EmployeesList() {
           Empleados
         </h2>
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 bg-gray-700 hover:bg-gray-800 text-white text-sm font-medium px-3 py-2 rounded-lg">
-            <UserPlus size={16} />
+          <button className="flex items-center gap-2 bg-gray-700 hover:bg-gray-800 text-white text-sm font-medium px-3 py-2 rounded-lg"
+            onClick = {() => dispatch({type:"admin-view", payload: {adminView : "createNewUser"}}) }
+          >
             Nuevo
+            <UserPlus size={16} />
           </button>
           <button
             onClick={() => dispatch({ type: "admin-view", payload: { adminView: "admin" } })}

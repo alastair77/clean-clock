@@ -8,6 +8,8 @@ export type User = {
   hireDate: string
 }
 
+export type DraftUser = Omit<User, 'id'>
+
 export type Client = {
   id: string,
   name: string,

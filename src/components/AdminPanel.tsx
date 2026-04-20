@@ -1,6 +1,7 @@
 import { useAuth } from "../hooks/useAuth";
 import AssignmentsList from "./AssignmentsList";
 import ClientsList from "./ClientsList";
+import CreateUserForm from "./CreateUserForm";
 import EmployeesList from "./EmployeesList";
 import { SuppliesListAdmin } from "./SuppliesListAdmin";
 import { Users, ClipboardList, Building2, Package } from "lucide-react";
@@ -14,6 +15,7 @@ export default function AdminPanel() {
     assignments: <AssignmentsList />,
     clients: <ClientsList />,
     supplies: <SuppliesListAdmin />,
+    createNewUser: <CreateUserForm />
   };
 
   return (

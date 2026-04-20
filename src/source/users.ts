@@ -18,7 +18,7 @@ export const users: User[] = [
     {
         id:'2',
         name: 'Alejandro',
-        role: 'admin',
+        role: 'employee',
         pin: '2',
         hireDate: '11/4/2026'
     },

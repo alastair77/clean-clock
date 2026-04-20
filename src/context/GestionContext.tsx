@@ -3,10 +3,11 @@ import {
   useReducer,
   type ReactNode,
   type Dispatch,
+  useEffect,
 } from "react";
 import {
-  gestionReducer,
   initialState,
+  gestionReducer,  
   type GestionActions,
   type GestionState,
 } from "../reducers/gestion-reducer";
@@ -23,7 +24,13 @@ type GestionProvideProps = {
 export const GestionContext = createContext<GestionContextProps>(null!);
 
 export const GestionProvider = ({ children }: GestionProvideProps) => {
-  const [state, dispatch] = useReducer(gestionReducer, initialState);
+  const [state, dispatch] = useReducer(gestionReducer, {
+    ...initialState, 
+    users: JSON.parse(localStorage.getItem("users") || '[]')
+  });
+
+  // Escribir en localStorage cuando cambia el state.users
+  useEffect(() => { localStorage.setItem('users', JSON.stringify(state.users)) , [state.users]})
 
   return (
     <GestionContext.Provider value={{ state, dispatch }}>

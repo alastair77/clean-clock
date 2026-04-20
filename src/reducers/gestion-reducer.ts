@@ -1,9 +1,9 @@
-import type { User, Assignment } from "../types"
-
-
+import { v4 as uuidv4 } from 'uuid'
+import type { User, Assignment, DraftUser } from "../types"
+import { users } from '../source/users'
 
 export type GestionActions =
-    { type: 'show-modal-user', payload:{user: User} } |
+    { type: 'show-modal-user', payload:{currentUser: User} } |
     { type: 'show-assignments', payload:{userAssignments: Assignment[]}} |
     { type: 'show-modal'} |
     { type: 'close-modal'} |
@@ -11,27 +11,39 @@ export type GestionActions =
     { type: 'stop-counter'} |
     { type: 'open-supplies'} |
     { type: 'close-supplies'} |
-    { type: 'admin-view', payload:{adminView: 'admin'|'employees'|'assignments'|'clients'|'supplies' }}
+    { type: 'admin-view', payload:{adminView: 'admin'|'employees'|'assignments'|'clients'|'supplies' | 'createNewUser' }} |
+    { type: 'create-user', payload:{user: DraftUser}}
+    
     
 
 export type GestionState = {
-    user : User | null,
+    currentUser : User | null,
+    users : User[],
     assignments : Assignment[],
     modal : boolean,
     isCounterRunning : boolean,
     isShortageSuppliesOpen : boolean,
     showListEmployee : boolean,
-    adminView: 'admin'|'employees'|'assignments'|'clients'|'supplies'
+    adminView: 'admin'|'employees'|'assignments'|'clients'|'supplies' | 'createNewUser'
+
 }
 
 export const initialState: GestionState = {
-    user: null,
+    currentUser : null,
+    users: users,
     assignments: [],
     modal: false,
     isCounterRunning: false,
     isShortageSuppliesOpen: false,
     showListEmployee: false,
     adminView: 'admin'    
+}
+
+const createUser = (draftUser : DraftUser) : User => {
+    return {
+        ...draftUser,
+        id: uuidv4(),
+    }
 }
 
 export const gestionReducer = (
@@ -42,7 +54,7 @@ export const gestionReducer = (
     if (actions.type == 'show-modal-user') {
         return {
             ...state,
-            user: actions.payload.user           
+            currentUser: actions.payload.currentUser
         }        
     }
     if (actions.type == 'show-assignments') {
@@ -92,7 +104,7 @@ export const gestionReducer = (
         return {
             ...state,
             isShortageSuppliesOpen: false
-        }        
+        } 
     }
     if (actions.type == 'admin-view') {
         
@@ -100,7 +112,15 @@ export const gestionReducer = (
             ...state,
             adminView : actions.payload.adminView
         }        
-    }    
+    }
+    
+    if( actions.type == 'create-user') {
+        const user = createUser(actions.payload.user);
+        return {
+            ...state,
+            users: [...state.users, user] 
+        }
+    }
 
     return state
 }

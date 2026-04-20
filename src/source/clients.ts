@@ -2,23 +2,23 @@ import type { Client } from "../types"
 
 export const clients: Client[] = [
     {
-        id: '0000',
+        id: '0',
         name: 'Kim',
         adress: 'Correos'
     },
     {
-        id: '0001',
+        id: '1',
         name: 'Bruce y fate',
         adress: 'Donde Chevy'
     },
     
     {
-        id: '0002',
+        id: '2',
         name: 'Chevy',
         adress: 'Pont Mayor'
     },
     {
-        id: '0003',
+        id: '3',
         name: 'Montse',
         adress: 'Pont Mayor'
     }
