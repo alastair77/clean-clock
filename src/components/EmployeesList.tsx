@@ -3,7 +3,7 @@ import { useAuth } from "../hooks/useAuth";
 import { users } from "../source/users";
 
 export default function EmployeesList() {
-  const { state, dispatch } = useAuth();
+  const { dispatch } = useAuth();
 
   return (
     <div className="p-6">

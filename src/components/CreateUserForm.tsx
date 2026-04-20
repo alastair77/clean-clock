@@ -6,8 +6,7 @@ import type { DraftUser } from "../types";
 import ErrorForm from "./ErrorForm";
 
 export default function CreateUserForm() {
-  const dateToday = new Date().toLocaleDateString("es-ES");
-  const isFormReady = false;
+  const dateToday = new Date().toLocaleDateString("es-ES");  
   const { dispatch } = useAuth();
   const [user, setUser] = useState<DraftUser>({
     name: "",
