@@ -1,17 +1,16 @@
 import { CheckInControl } from "./components/CheckInControl";
-import AdminPanel from "./components/AdminPanel";
+import AdminDashboard from "./components/AdminDashboard";
 import PinForm from "./components/PinForm";
 import { useAuth } from "./hooks/useAuth";
 import { IncidentButtonsModal } from "./components/IncidentButtonsModal";
 
-
 function App() {
   const { state } = useAuth();
   const components = {
-    admin: <AdminPanel />,
-    employee: <CheckInControl />        
-  }
-  
+    admin: <AdminDashboard />,
+    employee: <CheckInControl />,
+  };
+
   return (
     <>
       <header className="bg-slate-500 py-8 max-h-72">
@@ -19,12 +18,15 @@ function App() {
           Gestion de personal
         </h1>
       </header>
-      
-      <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
-        {state.modal ? <IncidentButtonsModal /> : state.currentUser?.role ? components[state.currentUser.role] : <PinForm />}
-     </div>
-      
-      
+      {state.currentUser?.role === "admin" ? (
+        <AdminDashboard />
+      ) : (
+        <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
+          {state.modal ? (
+            <IncidentButtonsModal />
+          ) : <PinForm />}
+        </div>
+      )}
     </>
   );
 }
