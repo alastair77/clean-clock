@@ -6,10 +6,7 @@ import { IncidentButtonsModal } from "./components/IncidentButtonsModal";
 
 function App() {
   const { state } = useAuth();
-  const components = {
-    admin: <AdminDashboard />,
-    employee: <CheckInControl />,
-  };
+  
 
   return (
     <>
