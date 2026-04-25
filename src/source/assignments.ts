@@ -55,7 +55,7 @@ export const assignments: Assignment[] = [
         employeeId: '3',
         employeePin: '3',
         clientId: '3',
-        date: '2026-04-22',
+        date: '2026-04-19',
         startTime: 1744362000000,
         estimatedEndTime: 1744369200000,
         realEndTime: 1744359200000,
