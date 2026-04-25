@@ -23,8 +23,8 @@ export type Assignment = {
   clientId: string,
   date: string,
   startTime: number,
-  estimatedEndTime: string,
-  realEndTime?: string,
+  estimatedEndTime: number,
+  realEndTime?: number | null,
   comments: string
 }
 

@@ -24,10 +24,7 @@ type GestionProvideProps = {
 export const GestionContext = createContext<GestionContextProps>(null!);
 
 export const GestionProvider = ({ children }: GestionProvideProps) => {
-  const [state, dispatch] = useReducer(gestionReducer, {
-    ...initialState, 
-    users: JSON.parse(localStorage.getItem("users") || '[]')
-  });
+  const [state, dispatch] = useReducer(gestionReducer, initialState);
 
   // Escribir en localStorage cuando cambia el state.users
   useEffect(() => { localStorage.setItem('users', JSON.stringify(state.users)) , [state.users]})

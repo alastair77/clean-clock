@@ -2,95 +2,111 @@ import type { Assignment } from "../types";
 
 export const assignments: Assignment[] = [
     {
-        //paula
+        //Maria Lopez
         id: '0',
         employeeId: '1',
-        employeePin:'1',
+        employeePin: '1',
         clientId: '1',
-        date: '21/4/2026',
+        date: '2026-04-26',
         startTime: 1744362000000,
-        estimatedEndTime: '',
-        realEndTime: '',
+        estimatedEndTime: 1744369200000,
+        realEndTime: null,
         comments: ''
     },
     {
-        //paula
+        //Maria Lopez
         id: '1',
         employeeId: '1',
-        employeePin:'1',
+        employeePin: '1',
         clientId: '2',
-        date: '21/4/2026',
+        date: '2026-04-27',
         startTime: 1744369200000,
-        estimatedEndTime: '',
-        realEndTime: '',
+        estimatedEndTime: 1744376400000,
+        realEndTime: null,
         comments: ''
     },
     {
-        //alejandro
+        //Ana Garcia
         id: '2',
         employeeId: '2',
-        employeePin:'2',
+        employeePin: '2',
         clientId: '3',
-        date: '21/4/2026',
+        date: '2026-04-27',
         startTime: 1744365600000,
-        estimatedEndTime: '',
-        realEndTime: '',
+        estimatedEndTime: 1744372800000,
+        realEndTime: 1744374600000,
         comments: ''
     },
     {
-        //carolina
+        //Rosa Martinez
         id: '3',
         employeeId: '3',
-        employeePin:'3',
+        employeePin: '3',
         clientId: '2',
-        date: '21/4/2026',
+        date: '2026-04-28',
         startTime: 1744362000000,
-        estimatedEndTime: '',
-        realEndTime: '',
+        estimatedEndTime: 1744369200000,
+        realEndTime: null,
         comments: ''
     },
-    {//carolina
+    {
+        //Rosa Martinez
         id: '4',
         employeeId: '3',
-        employeePin:'3',
+        employeePin: '3',
         clientId: '3',
-        date: '21/4/2026',
+        date: '2026-04-23',
         startTime: 1744362000000,
-        estimatedEndTime: '',
-        realEndTime: '',
+        estimatedEndTime: 1744369200000,
+        realEndTime: 1744359200000,
         comments: ''
     },
-    {//carolina
+    {
+        //Rosa Martinez
         id: '5',
         employeeId: '3',
-        employeePin:'3',
+        employeePin: '3',
         clientId: '2',
-        date: '21/4/2026',
+        date: '2026-04-22',
         startTime: 1744365600000,
-        estimatedEndTime: '',
-        realEndTime: '',
+        estimatedEndTime: 1744372800000,
+        realEndTime: 1744372900000,
         comments: ''
     },
-    {//carolina
+    {
+        //Rosa Martinez
         id: '6',
         employeeId: '3',
-        employeePin:'3',
+        employeePin: '3',
         clientId: '1',
-        date: '21/4/2026',
+        date: '2026-04-21',
         startTime: 1744369200000,
-        estimatedEndTime: '',
-        realEndTime: '',
+        estimatedEndTime: 1744376400000,
+        realEndTime: 1744378200000,
         comments: ''
     },
-    {//carolina
+    {
+        //Carmen Soler
         id: '7',
-        employeeId: '3',
-        employeePin:'3',
+        employeeId: '4',
+        employeePin: '4',
         clientId: '2',
-        date: '21/4/2026',
+        date: '2026-04-21',
         startTime: 1744365600000,
-        estimatedEndTime: ' am',
-        realEndTime: '',
+        estimatedEndTime: 1744372800000,
+        realEndTime: 1744372700000,
+        comments: ''
+    },
+    {
+        //Lucia Ramos
+        id: '8',
+        employeeId: '5',
+        employeePin: '5',
+        clientId: '2',
+        date: '2026-04-20',
+        startTime: 1744365600000,
+        estimatedEndTime: 1744372800000,
+        realEndTime: 1744371200000,
         comments: ''
     }
 ]

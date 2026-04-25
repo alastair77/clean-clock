@@ -20,11 +20,13 @@ function App() {
       </header>
       {state.currentUser?.role === "admin" ? (
         <AdminDashboard />
+      ) : state.currentUser?.role === "employee" ? (
+        <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
+          {state.modal ? <IncidentButtonsModal /> : <CheckInControl />}
+        </div>
       ) : (
         <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
-          {state.modal ? (
-            <IncidentButtonsModal />
-          ) : <PinForm />}
+          <PinForm />
         </div>
       )}
     </>

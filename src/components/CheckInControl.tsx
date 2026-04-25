@@ -12,13 +12,15 @@ export const CheckInControl = () => {
   const [elapsedTime, setElapsedTime] = useState(0);
   const [workTime, setWorkTime] = useState(0);
   const intervalRef = useRef<number | null>(null);
-  console.log(state)
+  
 
-  const dateToday = new Date().toLocaleDateString("es-ES");
-
+  // const dateToday = new Date().toISOString().split('T')[0];
+  const dateToday = new Date().toLocaleDateString('en-CA')
+  console.log(dateToday)
   const todayAssignments = state.assignments.filter(
     (assignment) => assignment.date === dateToday,
   );
+  console.log(todayAssignments)
 
   let nextAssignment: Assignment | null = null;
   let nextClientName = "";

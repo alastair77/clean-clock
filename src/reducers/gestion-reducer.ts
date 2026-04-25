@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import type { User, Assignment, DraftUser } from "../types"
 import { users } from '../source/users'
+import { assignments } from '../source/assignments'
 
 export type GestionActions =
     { type: 'show-modal-user', payload:{currentUser: User} } |
@@ -30,8 +31,9 @@ export type GestionState = {
 
 export const initialState: GestionState = {
     currentUser : null,
+    // users: JSON.parse(localStorage.getItem('users') || 'null') ?? users,
     users: users,
-    assignments: [],
+    assignments: assignments,
     modal: false,
     isCounterRunning: false,
     isShortageSuppliesOpen: false,
