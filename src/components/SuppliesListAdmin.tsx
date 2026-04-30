@@ -1,9 +1,8 @@
 import { Pencil, Trash2, X, PackagePlus } from "lucide-react";
-import { supplies } from "../source/supplies";
 import { useAuth } from "../hooks/useAuth";
 
 export const SuppliesListAdmin = () => {
-  const { dispatch } = useAuth();
+  const { state, dispatch } = useAuth();
 
   return (
     <div className="p-6">
@@ -34,7 +33,7 @@ export const SuppliesListAdmin = () => {
           </tr>
         </thead>
         <tbody>
-          {supplies.map((supply) => (
+          {state.supplies.map((supply) => (
             <tr key={supply.id} className="border-b border-mist-100 hover:bg-mist-50">
               <td className="py-3 px-4 text-gray-600 text-sm">{supply.name}</td>
               <td className="py-3 px-4 text-gray-600 text-sm">{supply.shortage}</td>

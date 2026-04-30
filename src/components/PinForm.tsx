@@ -1,12 +1,10 @@
 import { useState, useMemo } from "react";
-import { users } from "../source/users";
-import { assignments } from "../source/assignments";
 import ErrorMessage from "./ErrorMessage";
 import { useAuth } from "../hooks/useAuth";
 
 
 export default function PinForm() {
-  const { dispatch } = useAuth();
+  const { state, dispatch } = useAuth();
   const [error, setError] = useState("");
   const [pin, setPin] = useState("");
   const maxPinLength = useMemo(() => {
@@ -17,12 +15,12 @@ export default function PinForm() {
   
   const getUserByPin = (pin: string) => {
 
-    const userFound = users.find((user) => user.pin === pin);        
+    const userFound = state.users.find((user) => user.pin === pin);        
     return userFound ? userFound : null;
   };
 
   const getAssignmentsByUserId = (userId: string) => {
-    const assignmentsFound = assignments.filter(assignment => 
+    const assignmentsFound = state.assignments.filter(assignment => 
         userId === assignment.employeeId && !assignment.realEndTime)
         return assignmentsFound.length > 0 ? assignmentsFound : []     
   }

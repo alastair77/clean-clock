@@ -1,12 +1,9 @@
 import { Pencil, Trash2, X, CalendarPlus } from "lucide-react";
-import { assignments } from "../source/assignments";
 import { useAuth } from "../hooks/useAuth";
-import { clients } from "../source/clients";
-import { users } from "../source/users";
 
 export default function AssignmentsList() {
   
-  const { dispatch } = useAuth()
+  const { state, dispatch } = useAuth()
 
   return (
     <>
@@ -46,7 +43,7 @@ export default function AssignmentsList() {
             </tr>
           </thead>
           <tbody>
-            {assignments.map((assignment) =>  (
+            {state.assignments.map((assignment) =>  (
                
               <tr
                 key={assignment.id}
@@ -56,11 +53,11 @@ export default function AssignmentsList() {
                   {assignment.date}
                 </td>
                 <td className="py-3 px-4 text-gray-600 text-sm">
-                  {clients.find(client => client.id === assignment.clientId)?.name}
+                  {state.clients.find(client => client.id === assignment.clientId)?.name}
                   {/* {assignment.clientId} */}
                 </td>
                 <td className="py-3 px-4 text-gray-600 text-sm">
-                  {users.find(user => user.id === assignment.employeeId)?.name}
+                  {state.users.find(user => user.id === assignment.employeeId)?.name}
                 </td>
                 <td className="py-3 px-4 text-right">
                   <button className="text-gray-300 hover:text-gray-600 mr-3">

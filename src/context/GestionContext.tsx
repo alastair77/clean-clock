@@ -7,10 +7,11 @@ import {
 } from "react";
 import {
   initialState,
-  gestionReducer,  
+  gestionReducer,
   type GestionActions,
   type GestionState,
 } from "../reducers/gestion-reducer";
+import { getUsers, getAssignments, getClients, getSupplies } from "../supabase";
 
 type GestionContextProps = {
   state: GestionState;
@@ -25,9 +26,28 @@ export const GestionContext = createContext<GestionContextProps>(null!);
 
 export const GestionProvider = ({ children }: GestionProvideProps) => {
   const [state, dispatch] = useReducer(gestionReducer, initialState);
+  
 
-  // Escribir en localStorage cuando cambia el state.users
-  useEffect(() => { localStorage.setItem('users', JSON.stringify(state.users)) , [state.users]})
+
+  //Llamar las tablas para enviarlas al reducer
+  useEffect(() => {
+    getUsers().then((users) => {      
+      dispatch({ type: "set-users", payload: { users } });
+      console.log(users)
+    });
+    getAssignments().then((assignments) => {
+      dispatch({ type: "set-assignments", payload: { assignments } });
+      console.log(assignments)
+    });
+    getClients().then((clients) => {
+      dispatch({ type: "set-clients", payload: { clients } });
+      console.log(clients)
+    });
+    getSupplies().then((supplies) => {
+      dispatch({ type: "set-supplies", payload: { supplies } });
+      console.log(supplies)
+    });
+  }, []);
 
   return (
     <GestionContext.Provider value={{ state, dispatch }}>

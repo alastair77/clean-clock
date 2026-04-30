@@ -1,9 +1,8 @@
 import { Pencil, Trash2, X, UserPlus } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
-import { users } from "../source/users";
 
 export default function EmployeesList() {
-  const { dispatch } = useAuth();
+  const { state, dispatch } = useAuth();
 
   return (
     <div className="p-6">
@@ -37,7 +36,7 @@ export default function EmployeesList() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {state.users.map((user) => (
             <tr key={user.id} className="border-b border-gray-100 hover:bg-gray-50">
               <td className="py-3 px-4 text-gray-600 text-sm">{user.name}</td>
               <td className="py-3 px-4 text-gray-600 text-sm">{user.hireDate}</td>

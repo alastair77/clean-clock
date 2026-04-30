@@ -1,9 +1,8 @@
 import { Pencil, Trash2, X, UserRoundPlus } from "lucide-react";
-import { clients } from "../source/clients";
 import { useAuth } from "../hooks/useAuth";
 
 export default function ClientsList() {
-  const { dispatch } = useAuth();
+  const { state, dispatch } = useAuth();
 
   return (
     <div className="p-6">
@@ -34,7 +33,7 @@ export default function ClientsList() {
           </tr>
         </thead>
         <tbody>
-          {clients.map((client) => (
+          {state.clients.map((client) => (
             <tr key={client.id} className="border-b border-cyan-50 hover:bg-cyan-50">
               <td className="py-3 px-4 text-gray-600 text-sm">{client.name}</td>
               <td className="py-3 px-4 text-gray-600 text-sm">{client.adress}</td>

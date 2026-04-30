@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { supplies } from "../source/supplies";
 import type { Supplie } from "../types";
+import { useAuth } from "../hooks/useAuth";
 
 export const SuppliesListEmployee = () => {
-  const [order, setOrder] = useState<Supplie[]>(supplies);
+  const { state } = useAuth()
+  const [order, setOrder] = useState<Supplie[]>(state.supplies);
 
   const handleChange = (id: string, value: number) => {
     setOrder(

@@ -13,7 +13,7 @@ export type DraftUser = Omit<User, 'id'>
 export type Client = {
   id: string,
   name: string,
-  adress: string
+  address: string
 }
 
 export type Assignment = {

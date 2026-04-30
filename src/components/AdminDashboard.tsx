@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
-import { clients } from "../source/clients";
 
 const getInitials = (name: string) => {
   return name
@@ -272,7 +271,7 @@ export default function AdminDashboard() {
                         (u) => u.id === assignment.employeeId,
                       );
                       const clientName =
-                        clients.find((c) => c.id === assignment.clientId)
+                        state.clients.find((c) => c.id === assignment.clientId)
                           ?.name ?? "—";
                       return (
                         <tr

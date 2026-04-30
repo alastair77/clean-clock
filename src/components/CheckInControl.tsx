@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
-import { clients } from "../source/clients";
 import type { Assignment } from "../types";
 import { Fragment } from "react/jsx-runtime";
 import { Dialog, Transition } from "@headlessui/react";
@@ -31,7 +30,7 @@ export const CheckInControl = () => {
         ? todayAssignment
         : earliest,
     );
-    const nextClient = clients.find(
+    const nextClient = state.clients.find(
       (client) => client.id === nextAssignment!.clientId,
     );
     nextClientName = nextClient?.name ?? "Cliente no encontrado";
