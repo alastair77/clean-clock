@@ -36,7 +36,7 @@ export default function ClientsList() {
           {state.clients.map((client) => (
             <tr key={client.id} className="border-b border-cyan-50 hover:bg-cyan-50">
               <td className="py-3 px-4 text-gray-600 text-sm">{client.name}</td>
-              <td className="py-3 px-4 text-gray-600 text-sm">{client.adress}</td>
+              <td className="py-3 px-4 text-gray-600 text-sm">{client.address}</td>
               <td className="py-3 px-4 text-right">
                 <button className="text-cyan-600 hover:text-cyan-700 mr-3">
                   <Pencil size={16} />
